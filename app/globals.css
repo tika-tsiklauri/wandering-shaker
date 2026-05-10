@@ -5,6 +5,7 @@
   /* linen */
   --foreground: #354f32;
   /* moss */
+  color-scheme: light;
 }
 
 @theme inline {
@@ -21,9 +22,22 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #e9e2d0;
+    --foreground: #354f32;
   }
+}
+
+input,
+textarea,
+select {
+  color: #354f32;
+  -webkit-text-fill-color: #354f32;
+  font-size: 16px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgb(53 79 50 / 0.6);
 }
 
 body {

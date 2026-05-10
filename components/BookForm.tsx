@@ -88,7 +88,7 @@ export default function BookForm() {
                 required
                 value={form.name}
                 onChange={handleChange}
-                className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               />
             </div>
 
@@ -102,7 +102,7 @@ export default function BookForm() {
                 required
                 value={form.email}
                 onChange={handleChange}
-                className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               />
             </div>
 
@@ -116,7 +116,7 @@ export default function BookForm() {
                 required
                 value={form.eventDate}
                 onChange={handleChange}
-                className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               />
             </div>
 
@@ -128,7 +128,7 @@ export default function BookForm() {
                 name="eventType"
                 value={form.eventType}
                 onChange={handleChange}
-                className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               >
                 <option value="">Select type</option>
                 <option value="wedding">Wedding</option>
@@ -148,7 +148,7 @@ export default function BookForm() {
                 name="location"
                 value={form.location}
                 onChange={handleChange}
-                className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               />
             </div>
 
@@ -162,7 +162,7 @@ export default function BookForm() {
                 min={1}
                 value={form.guestCount}
                 onChange={handleChange}
-                className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               />
             </div>
           </div>
@@ -176,7 +176,7 @@ export default function BookForm() {
               rows={4}
               value={form.message}
               onChange={handleChange}
-              className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+              className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               placeholder="Date flexibility, bar style, cocktails you love, anything we should know…"
             />
           </div>

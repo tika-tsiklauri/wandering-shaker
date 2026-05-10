@@ -81,7 +81,7 @@ export default function ContactForm() {
                     required
                     value={form.name}
                     onChange={handleChange}
-                    className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                    className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
                   />
                 </div>
 
@@ -95,7 +95,7 @@ export default function ContactForm() {
                     required
                     value={form.email}
                     onChange={handleChange}
-                    className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                    className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
                   />
                 </div>
 
@@ -109,7 +109,7 @@ export default function ContactForm() {
                     required
                     value={form.message}
                     onChange={handleChange}
-                    className="font-secondary text-sm rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                    className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
                     placeholder="How can we help?"
                   />
                 </div>
