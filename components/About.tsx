@@ -5,6 +5,7 @@ type Img = {
   src?: string;
   alt: string;
   objectPosition?: string; // e.g. "50% 65%"
+  objectPositionClassName?: string; // e.g. "object-[50%_4%] sm:object-[50%_10%]"
 };
 
 function Media({
@@ -28,7 +29,7 @@ function Media({
           alt={image.alt}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover"
+          className={`object-cover ${image.objectPositionClassName ?? ""}`}
           style={
             image.objectPosition
               ? { objectPosition: image.objectPosition }
@@ -175,16 +176,13 @@ export default function AboutPage() {
               where atmosphere matters as much as the drinks.
             </p>
             <p>
-              Each bar experience is shaped around the people, the setting, and
+              Our service is shaped around the people, the setting, and
               the pace of the evening, so the bar feels seamless and natural in
               the room.
             </p>
             <p className="text-[var(--color-linen)]/80">
               We bring the quiet care of great cocktail bars to private
               celebrations of all kinds.
-              <span className="block mt-2">
-                Quiet hospitality, crafted with intention.
-              </span>
             </p>
           </>
         }
@@ -233,7 +231,7 @@ export default function AboutPage() {
                 image={{
                   src: "/IMG_3393.JPG",
                   alt: "Bartender portrait-style moment",
-                  objectPosition: "50% 10%",
+                  objectPositionClassName: "object-[50%_2%] sm:object-[50%_8%]",
                 }}
                 ratio="aspect-[4/5]"
               />

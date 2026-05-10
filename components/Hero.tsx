@@ -36,11 +36,11 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto px-6 pb-12 pt-10">
           <div className="max-w-xxl">
             <h1 className="font-primary text-2xl md:text-4xl font-semibold leading-tight tracking-tight text-[#e9e2d0]">
-              Quiet hospitality, crafted with intention
+              Hospitality that unfolds naturally
             </h1>
 
             <p className="font-secondary mt-3 text-base text-md text-[#e9e2d0]/90 w-full">
-              Thoughtfully designed bar experiences, wherever you gather.
+              Thoughtfully designed bar experience, wherever you gather.
             </p>
             <br />
             <p className="pt-2 font-secondary mt-3 text-base text-sm text-[#e9e2d0]/90 w-full">

@@ -135,7 +135,7 @@ export default function ServicesPage() {
       <Section
         id="expect"
         eyebrow="What to expect"
-        title="Quiet hospitality, done with intention"
+        title="Hospitality that unfolds naturally"
       >
         <BulletList
           items={[
@@ -157,9 +157,9 @@ export default function ServicesPage() {
             <h2 className="mt-3 max-w-3xl font-primary text-3xl leading-tight md:text-4xl">
               Let’s shape the bar around your gathering.
             </h2>
-            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-black/75 md:text-base">
-              If you’re planning an event and would like to explore what the bar
-              could look like, we’d love to hear more.
+            <p className="mt-4 max-w-4xl text-[15px] leading-relaxed text-black/75 md:text-base">
+              If you’re planning a gathering and would like to explore how we
+              can help shape the bar experience, we’d love to hear more.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">

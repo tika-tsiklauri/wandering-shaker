@@ -16,7 +16,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[var(--color-linen)]/65 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[var(--color-linen)]/35 backdrop-blur-sm">
       {/* Seamless fade blend into page */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-[var(--color-linen)]/30 to-transparent" />
 
@@ -42,12 +42,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop menu */}
-        <div className="hidden md:flex items-center gap-8 text-[13.5px] tracking-[0.08em] text-[var(--color-moss)]/75">
+        <div className="hidden md:flex items-center gap-8 text-[13.5px] tracking-[0.08em] text-[var(--color-moss)]/100">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="relative group transition-colors duration-300"
+              className="relative group font-semibold transition-colors duration-300"
             >
               <span className="transition-colors duration-300 group-hover:text-[var(--color-moss)]">
                 {link.label}

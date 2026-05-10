@@ -1,6 +1,6 @@
 // components/Footer.tsx
 export default function Footer() {
-  const year = new Date().getFullYear();
+  const year = new Date().getUTCFullYear();
 
   return (
     <footer className="border-t border-black/10 bg-[var(--color-linen)]">
@@ -14,7 +14,7 @@ export default function Footer() {
 
             <div className="mt-3 text-black/40 text-xs">
               <a href="/inquiries" className="underline underline-offset-4">
-                Inquier
+                Inquire
               </a>
             </div>
 
@@ -61,7 +61,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-7 flex flex-col gap-2 border-t border-black/10 pt-4 text-xs text-black/50 md:flex-row md:items-center md:justify-between">
-          <p>© {year} Wandering Shaker</p>
+          <p>
+            © <span suppressHydrationWarning>{year}</span> Wandering Shaker
+          </p>
           <p>bar where you are.</p>
         </div>
       </div>

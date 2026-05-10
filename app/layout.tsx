@@ -42,6 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`
           ${cormorant.variable}
           ${inter.variable}

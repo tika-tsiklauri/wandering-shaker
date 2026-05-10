@@ -31,7 +31,6 @@ input,
 textarea,
 select {
   color: #354f32;
-  -webkit-text-fill-color: #354f32;
   font-size: 16px;
 }
 
