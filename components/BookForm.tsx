@@ -193,8 +193,7 @@ export default function BookForm() {
                 min={minEventDate}
                 value={form.eventDate}
                 onChange={handleChange}
-                onPointerDown={(e) => {
-                  e.preventDefault();
+                onClick={(e) => {
                   try {
                     e.currentTarget.showPicker?.();
                   } catch {
@@ -202,24 +201,34 @@ export default function BookForm() {
                   }
                 }}
                 onKeyDown={(e) => {
-                  if (e.key === "Tab") return;
+                  if (e.ctrlKey || e.metaKey || e.altKey) return;
+                  if (e.key === "Tab" || e.key === "Shift") return;
 
-                  if (
+                  const shouldOpenPicker =
                     e.key === "Enter" ||
                     e.key === " " ||
-                    e.key === "ArrowDown"
-                  ) {
-                    e.preventDefault();
+                    e.key === "ArrowDown" ||
+                    e.key === "ArrowUp";
+
+                  e.preventDefault();
+
+                  if (shouldOpenPicker) {
                     try {
                       e.currentTarget.showPicker?.();
                     } catch {
                       // Ignore browsers that block or don't support showPicker.
                     }
-                    return;
                   }
-
-                  e.preventDefault();
                 }}
+                onPaste={(e) => e.preventDefault()}
+                onDrop={(e) => e.preventDefault()}
+                onBeforeInput={(e) => {
+                  const nativeType = (e.nativeEvent as InputEvent).inputType;
+                  if (nativeType?.startsWith("insert")) {
+                    e.preventDefault();
+                  }
+                }}
+                inputMode="none"
                 className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none caret-transparent select-none cursor-pointer focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               />
               {eventDateError && (
@@ -233,28 +242,45 @@ export default function BookForm() {
               <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
                 Event type
               </label>
-              <select
-                name="eventType"
-                value={form.eventType}
-                required
-                onChange={handleChange}
-                onFocus={() => setEventTypeFocused(true)}
-                onBlur={() => setEventTypeFocused(false)}
-                className={`font-secondary text-base rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60 ${
-                  form.eventType
-                    ? "text-[#354f32]"
-                    : eventTypeFocused
-                      ? "text-transparent"
-                      : "text-[#354f32]/45"
-                }`}
-              >
-                <option value="">Select type</option>
-                <option value="wedding">Wedding</option>
-                <option value="private-party">Private gathering</option>
-                <option value="corporate">Corporate event</option>
-                <option value="brand-event">Brand / launch</option>
-                <option value="other">Other</option>
-              </select>
+              <div className="relative">
+                <select
+                  name="eventType"
+                  value={form.eventType}
+                  required
+                  onChange={handleChange}
+                  onFocus={() => setEventTypeFocused(true)}
+                  onBlur={() => setEventTypeFocused(false)}
+                  className={`w-full font-secondary text-base rounded-md border border-[#c7b8a2]/70 bg-white/70 pl-3 pr-10 py-2 outline-none appearance-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60 ${
+                    form.eventType
+                      ? "text-[#354f32]"
+                      : eventTypeFocused
+                        ? "text-transparent"
+                        : "text-[#354f32]/45"
+                  }`}
+                >
+                  <option value="">Select type</option>
+                  <option value="wedding">Wedding</option>
+                  <option value="private-party">Private gathering</option>
+                  <option value="corporate">Corporate event</option>
+                  <option value="brand-event">Brand / launch</option>
+                  <option value="other">Other</option>
+                </select>
+                <svg
+                  className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#354f32]/70"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M5 7.5L10 12.5L15 7.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
             </div>
 
             <div className="flex flex-col gap-1 md:col-span-1">
