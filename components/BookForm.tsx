@@ -90,7 +90,7 @@ export default function BookForm() {
     setForm((prev) => ({ ...prev, [name]: value }));
 
     if (name === "eventDate") {
-      setEventDateError(null);
+      setEventDateError(validateEventDate(value));
     }
   };
 
@@ -220,15 +220,6 @@ export default function BookForm() {
                     }
                   }
                 }}
-                onPaste={(e) => e.preventDefault()}
-                onDrop={(e) => e.preventDefault()}
-                onBeforeInput={(e) => {
-                  const nativeType = (e.nativeEvent as InputEvent).inputType;
-                  if (nativeType?.startsWith("insert")) {
-                    e.preventDefault();
-                  }
-                }}
-                inputMode="none"
                 className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none caret-transparent select-none cursor-pointer focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
               />
               {eventDateError && (
