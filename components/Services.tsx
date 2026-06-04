@@ -71,21 +71,25 @@ export default function ServicesPage() {
       <Section
         id="starting-point"
         eyebrow="The starting point"
-        title="Services begin at $850"
+        title="Craft bartending, shaped to your event"
       >
-        <p>Our base service includes:</p>
+        <p>
+          Every gathering brings its own energy, and the bar should feel like a natural extension of the occasion. We work with you to create an experience that fits the mood, the crowd, and the flow of your event.
+        </p>
+        <p className="mt-4">
+          Whether you envision refined, classic bar service or a more expansive, bespoke cocktail offering, we guide you through the process-helping you shape something that feels considered without feeling complicated.
+        </p>
         <BulletList
           items={[
             "Professional bartending and event coordination",
-            "Setup and breakdown",
-            "One featured craft cocktail selected to complement your event",
-            "Bar service tailored to your gathering",
+            "Thoughtful setup and seamless breakdown",
+            "A curated cocktail experience tailored to your gathering",
+            "Bar service designed around your vision",
             "Guidance on alcohol and ingredients, handled separately",
           ]}
         />
-        <p className="text-black/70">
-          This approach allows the bar to feel intentional without
-          overcomplicating the experience.
+        <p className="text-black/70 mt-4">
+          Pricing for each event is custom-quoted based on guest count, the style of bar tailoring, the level of customization and cocktail program complexity, and the craft involved. We provide a detailed quote that reflects what’s right for your gathering.
         </p>
       </Section>
 
@@ -198,7 +202,7 @@ export default function ServicesPage() {
           </div>
 
           <p className="mt-10 text-xs tracking-[0.12em] uppercase text-black/45">
-            Pricing varies with guest count, hours, and staffing.
+            Each event receives a custom quote.
           </p>
         </div>
       </section>

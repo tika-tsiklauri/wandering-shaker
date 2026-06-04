@@ -25,7 +25,7 @@ export default function Hero() {
       {/* Desktop video */}
       <div className="hidden md:block">
         <HeroVideoMontage
-          src="/hero/desktopFilm.MOV"
+          src="/hero/desktopMovie.MOV"
           poster="/hero/montage-poster.jpg"
           bottomBandClass="bottom-0"
         />

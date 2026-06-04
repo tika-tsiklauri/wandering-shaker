@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Toast, useToast } from "./Toast";
 
 type FormState = {
   name: string;
@@ -66,10 +67,9 @@ function validateEventDate(value: string): string | null {
 export default function BookForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const [eventTypeFocused, setEventTypeFocused] = useState(false);
   const [eventDateError, setEventDateError] = useState<string | null>(null);
+  const { toast, showToast, hideToast } = useToast();
 
   const minEventDate = (() => {
     const date = new Date();
@@ -89,6 +89,11 @@ export default function BookForm() {
 
     setForm((prev) => ({ ...prev, [name]: value }));
 
+    // Clear toast when user starts typing again
+    if (toast) {
+      hideToast();
+    }
+
     if (name === "eventDate") {
       setEventDateError(validateEventDate(value));
     }
@@ -97,8 +102,6 @@ export default function BookForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setSuccess(null);
-    setError(null);
 
     const dateValidationError = validateEventDate(form.eventDate);
     if (dateValidationError) {
@@ -124,7 +127,7 @@ export default function BookForm() {
         throw new Error("Request failed");
       }
 
-      setSuccess("Thank you! We’ve received your inquiry and will be in touch soon.");
+      showToast("Thank you! We've received your inquiry and will be in touch soon.", "success");
       setForm(initialState);
     } catch (err) {
       console.error(err);
@@ -132,213 +135,209 @@ export default function BookForm() {
         err instanceof Error
           ? err.message
           : "Something went wrong. Please try again or email us directly.";
-      setError(message);
+      showToast(message, "error");
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <section className="w-full bg-[#f8f5ef] py-18">
-      <div className="max-w-3xl mx-auto px-6 py-18">
-        {/* <h1 className="font-primary text-3xl md:text-4xl text-[#354f32]">
-          Book Us
-        </h1> */}
-        <p className="mt-3 font-secondary text-sm md:text-base text-[#354f32]/80 max-w-xl">
-          Tell us a little about your event and we’ll follow up with
-          availability, pricing, and a tailored bar experience.
-        </p>
+    <>
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onDismiss={hideToast}
+        />
+      )}
+      <section className="w-full bg-[#f8f5ef] py-18">
+        <div className="max-w-3xl mx-auto px-6 py-18">
+          <p className="mt-3 font-secondary text-sm md:text-base text-[#354f32]/80 max-w-xl">
+            Tell us a little about your event and we'll follow up with
+            availability, pricing, and a tailored bar experience.
+          </p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="mt-8 rounded-xl border border-[#c7b8a2]/60 bg-[#f8f5ef] p-6 md:p-8 shadow-sm"
-        >
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="flex flex-col gap-1">
-              <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                value={form.name}
-                onChange={handleChange}
-                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
-              />
-            </div>
+          <form
+            onSubmit={handleSubmit}
+            className="mt-8 rounded-xl border border-[#c7b8a2]/60 bg-[#f8f5ef] p-6 md:p-8 shadow-sm"
+          >
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="flex flex-col gap-1">
+                <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                />
+              </div>
 
-            <div className="flex flex-col gap-1">
-              <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={form.email}
-                onChange={handleChange}
-                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
-              />
-            </div>
+              <div className="flex flex-col gap-1">
+                <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                />
+              </div>
 
-            <div className="flex flex-col gap-1">
-              <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
-                Event date
-              </label>
-              <input
-                type="date"
-                name="eventDate"
-                required
-                min={minEventDate}
-                value={form.eventDate}
-                onChange={handleChange}
-                onClick={(e) => {
-                  try {
-                    e.currentTarget.showPicker?.();
-                  } catch {
-                    // Ignore browsers that block or don't support showPicker.
-                  }
-                }}
-                onKeyDown={(e) => {
-                  if (e.ctrlKey || e.metaKey || e.altKey) return;
-                  if (e.key === "Tab" || e.key === "Shift") return;
-
-                  const shouldOpenPicker =
-                    e.key === "Enter" ||
-                    e.key === " " ||
-                    e.key === "ArrowDown" ||
-                    e.key === "ArrowUp";
-
-                  e.preventDefault();
-
-                  if (shouldOpenPicker) {
+              <div className="flex flex-col gap-1">
+                <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
+                  Event date
+                </label>
+                <input
+                  type="date"
+                  name="eventDate"
+                  required
+                  min={minEventDate}
+                  value={form.eventDate}
+                  onChange={handleChange}
+                  onClick={(e) => {
                     try {
                       e.currentTarget.showPicker?.();
                     } catch {
                       // Ignore browsers that block or don't support showPicker.
                     }
-                  }
-                }}
-                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none caret-transparent select-none cursor-pointer focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
-              />
-              {eventDateError && (
-                <p className="mt-1 font-secondary text-xs text-red-700">
-                  {eventDateError}
-                </p>
-              )}
-            </div>
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.ctrlKey || e.metaKey || e.altKey) return;
+                    if (e.key === "Tab" || e.key === "Shift") return;
 
-            <div className="flex flex-col gap-1">
-              <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
-                Event type
-              </label>
-              <div className="relative">
-                <select
-                  name="eventType"
-                  value={form.eventType}
-                  required
+                    const shouldOpenPicker =
+                      e.key === "Enter" ||
+                      e.key === " " ||
+                      e.key === "ArrowDown" ||
+                      e.key === "ArrowUp";
+
+                    e.preventDefault();
+
+                    if (shouldOpenPicker) {
+                      try {
+                        e.currentTarget.showPicker?.();
+                      } catch {
+                        // Ignore browsers that block or don't support showPicker.
+                      }
+                    }
+                  }}
+                  className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none caret-transparent select-none cursor-pointer focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                />
+                {eventDateError && (
+                  <p className="mt-1 font-secondary text-xs text-red-700">
+                    {eventDateError}
+                  </p>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
+                  Event type
+                </label>
+                <div className="relative">
+                  <select
+                    name="eventType"
+                    value={form.eventType}
+                    required
+                    onChange={handleChange}
+                    onFocus={() => setEventTypeFocused(true)}
+                    onBlur={() => setEventTypeFocused(false)}
+                    className={`w-full font-secondary text-base rounded-md border border-[#c7b8a2]/70 bg-white/70 pl-3 pr-10 py-2 outline-none appearance-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60 ${
+                      form.eventType
+                        ? "text-[#354f32]"
+                        : eventTypeFocused
+                          ? "text-transparent"
+                          : "text-[#354f32]/45"
+                    }`}
+                  >
+                    <option value="">Select type</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="private-party">Private gathering</option>
+                    <option value="corporate">Corporate event</option>
+                    <option value="brand-event">Brand / launch</option>
+                    <option value="other">Other</option>
+                  </select>
+                  <svg
+                    className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#354f32]/70"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 7.5L10 12.5L15 7.5"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1 md:col-span-1">
+                <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
+                  Location / venue
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  value={form.location}
                   onChange={handleChange}
-                  onFocus={() => setEventTypeFocused(true)}
-                  onBlur={() => setEventTypeFocused(false)}
-                  className={`w-full font-secondary text-base rounded-md border border-[#c7b8a2]/70 bg-white/70 pl-3 pr-10 py-2 outline-none appearance-none focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60 ${
-                    form.eventType
-                      ? "text-[#354f32]"
-                      : eventTypeFocused
-                        ? "text-transparent"
-                        : "text-[#354f32]/45"
-                  }`}
-                >
-                  <option value="">Select type</option>
-                  <option value="wedding">Wedding</option>
-                  <option value="private-party">Private gathering</option>
-                  <option value="corporate">Corporate event</option>
-                  <option value="brand-event">Brand / launch</option>
-                  <option value="other">Other</option>
-                </select>
-                <svg
-                  className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#354f32]/70"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M5 7.5L10 12.5L15 7.5"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                  className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1 md:col-span-1">
+                <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
+                  Guest count (approx.)
+                </label>
+                <input
+                  type="number"
+                  name="guestCount"
+                  min={1}
+                  required
+                  value={form.guestCount}
+                  onChange={handleChange}
+                  className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                />
               </div>
             </div>
 
-            <div className="flex flex-col gap-1 md:col-span-1">
+            <div className="mt-4 flex flex-col gap-1">
               <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
-                Location / venue
+                Tell us about your event
               </label>
-              <input
-                type="text"
-                name="location"
-                value={form.location}
-                onChange={handleChange}
-                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
-              />
-            </div>
-
-            <div className="flex flex-col gap-1 md:col-span-1">
-              <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
-                Guest count (approx.)
-              </label>
-              <input
-                type="number"
-                name="guestCount"
-                min={1}
+              <textarea
+                name="message"
                 required
-                value={form.guestCount}
+                rows={4}
+                value={form.message}
                 onChange={handleChange}
-                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/60 focus:placeholder:text-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/25 focus:placeholder-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
+                placeholder="Date flexibility, bar style, cocktails you love, anything we should know…"
               />
             </div>
-          </div>
 
-          <div className="mt-4 flex flex-col gap-1">
-            <label className="font-secondary text-xs uppercase tracking-wide text-[#354f32]/70">
-              Tell us about your event
-            </label>
-            <textarea
-              name="message"
-              rows={4}
-              value={form.message}
-              onChange={handleChange}
-              className="font-secondary text-base text-[#354f32] rounded-md border border-[#c7b8a2]/70 bg-white/70 px-3 py-2 outline-none placeholder:text-[#354f32]/25 focus:placeholder-transparent focus:border-[#354f32] focus:ring-1 focus:ring-[#354f32]/60"
-              placeholder="Date flexibility, bar style, cocktails you love, anything we should know…"
-            />
-          </div>
-
-          <div className="mt-6 flex flex-col items-start gap-3 md:flex-row md:items-center md:gap-4">
-            <button
-              type="submit"
-              disabled={submitting}
-              className="font-secondary text-sm rounded-md bg-[#354f32] text-[#f8f5ef] px-6 py-2.5 hover:bg-[#2f452c] disabled:opacity-60 disabled:cursor-not-allowed transition"
-            >
-              {submitting ? "Sending…" : "Send inquiry"}
-            </button>
-
-            {success && (
-              <p className="font-secondary text-xs text-[#354f32]/80 max-w-xs md:max-w-sm">
-                {success}
-              </p>
-            )}
-            {error && (
-              <p className="font-secondary text-xs text-red-700 max-w-xs md:max-w-sm">
-                {error}
-              </p>
-            )}
-          </div>
-        </form>
-      </div>
-    </section>
+            <div className="mt-6 flex items-center gap-4">
+              <button
+                type="submit"
+                disabled={submitting}
+                className="font-secondary text-sm rounded-md bg-[#354f32] text-[#f8f5ef] px-6 py-2.5 hover:bg-[#2f452c] disabled:opacity-60 disabled:cursor-not-allowed transition"
+              >
+                {submitting ? "Sending…" : "Send inquiry"}
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
   );
 }
