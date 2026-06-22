@@ -192,7 +192,7 @@ export default function AboutPage() {
       {/* Intro (unchanged) */}
       <IntroHero
         image={{
-          mobileSrc: "/IMG_vertical_closeup.jpg", // TODO: replace with the mobile-specific About hero image.
+          mobileSrc: "/IMG_vertical_closeup.JPG",
           desktopSrc: "/IMG_new_bar.JPG",
           alt: "Bar scene",
           objectPosition: "50% 0%",
