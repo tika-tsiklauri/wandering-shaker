@@ -49,7 +49,7 @@ export default function HeroVideoMontage({
 
           {/* minimal overlays */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/15 via-black/15 to-black/10" />
-          <div className="pointer-events-none absolute inset-0 bg-[var(--color-linen)]/10" />
+          <div className="pointer-events-none absolute inset-0 bg-[var(--color-linen)]/15" />
 
           {/* subtle veil until ready */}
           {!ready && (

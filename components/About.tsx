@@ -3,6 +3,8 @@ import Image from "next/image";
 
 type Img = {
   src?: string;
+  mobileSrc?: string;
+  desktopSrc?: string;
   alt: string;
   objectPosition?: string; // e.g. "50% 65%"
   objectPositionClassName?: string; // e.g. "object-[50%_4%] sm:object-[50%_10%]"
@@ -68,25 +70,53 @@ function IntroHero({
   title: string;
   body: React.ReactNode;
 }) {
+  const mobileSrc = image.mobileSrc ?? image.src ?? image.desktopSrc;
+  const desktopSrc = image.desktopSrc ?? image.src ?? image.mobileSrc;
+
   return (
     <section className="relative min-h-[100svh] w-full overflow-hidden">
-      <Image
-        src={image.src!}
-        alt={image.alt}
-        fill
-        priority
-        className="object-cover scale-[1.12] sm:scale-100 lg:scale-[1.06]"
-        style={
-          image.objectPosition
-            ? { objectPosition: image.objectPosition }
-            : undefined
-        }
-      />
+      {mobileSrc ? (
+        <Image
+          src={mobileSrc}
+          alt={image.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover scale-[1.12] md:hidden"
+          style={
+            image.objectPosition
+              ? { objectPosition: image.objectPosition }
+              : undefined
+          }
+        />
+      ) : null}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/18 to-black/10" />
+      {desktopSrc ? (
+        <Image
+          src={desktopSrc}
+          alt={image.alt}
+          fill
+          priority
+          sizes="100vw"
+          className="hidden object-cover sm:scale-100 md:block lg:scale-[1.06]"
+          style={
+            image.objectPosition
+              ? { objectPosition: image.objectPosition }
+              : undefined
+          }
+        />
+      ) : null}
 
-      <div className="relative mx-auto mt-34 flex min-h-[100svh] max-w-6xl items-end px-5 pb-12 md:px-8 md:pb-20">
-        <div className="max-w-2xl">
+      {/* Linen wash to soften image */}
+      <div className="absolute inset-0 bg-[var(--color-linen)]/20" />
+
+      {/* Contrast layer for text readability */}
+      <div className="absolute inset-0 bg-black/15" />
+
+      {/* Gentle vertical gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/8" />
+      <div className="relative mx-auto mt-34 flex min-h-[100svh] max-w-6xl items-end px-5 pb-12 md:justify-end md:px-8 md:pb-20">
+        <div className="max-w-2xl md:max-w-xl lg:mr-8">
           <p className="text-xs tracking-[0.18em] uppercase text-[var(--color-linen)]/85">
             {eyebrow}
           </p>
@@ -162,7 +192,8 @@ export default function AboutPage() {
       {/* Intro (unchanged) */}
       <IntroHero
         image={{
-          src: "/IMG_bar.JPG",
+          mobileSrc: "/IMG_vertical_closeup.jpg", // TODO: replace with the mobile-specific About hero image.
+          desktopSrc: "/IMG_new_bar.JPG",
           alt: "Bar scene",
           objectPosition: "50% 0%",
         }}
@@ -176,9 +207,8 @@ export default function AboutPage() {
               where atmosphere matters as much as the drinks.
             </p>
             <p>
-              Our service is shaped around the people, the setting, and
-              the pace of the evening, so the bar feels seamless and natural in
-              the room.
+              Our service is shaped around the people, the setting, and the pace
+              of the evening, so the bar feels seamless and natural in the room.
             </p>
             <p className="text-[var(--color-linen)]/80">
               We bring the quiet care of great cocktail bars to private
@@ -394,12 +424,12 @@ export default function AboutPage() {
           <div className="relative mx-auto mt-12 max-w-5xl">
             <div className="relative overflow-hidden rounded-3xl border border-black/10 shadow-sm aspect-[21/9] bg-[var(--color-linen)]">
               <Image
-                src="/IMG_3764.JPG"
+                src="/IMG_bar.JPG"
                 alt="A quiet bar moment"
                 fill
                 sizes="(max-width: 768px) 100vw, 1200px"
-                className="object-cover scale-[1.3]"
-                style={{ objectPosition: "50% 80%" }}
+                className="object-cover"
+                style={{ objectPosition: "50% 20%" }}
               />
               {/* Soft editorial wash */}
               <div className="absolute inset-0 bg-[var(--color-linen)]/18" />
