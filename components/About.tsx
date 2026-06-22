@@ -194,7 +194,7 @@ export default function AboutPage() {
       <IntroHero
         image={{
           mobileSrc: "/IMG_vertical_closeup.JPG",
-          desktopSrc: "/IMG_new_bar.JPG",
+          desktopSrc: "/IMG_new_bar.jpg",
           alt: "Bar scene",
           objectPosition: "50% 0%",
         }}
