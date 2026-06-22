@@ -115,7 +115,7 @@ function IntroHero({
 
       {/* Gentle vertical gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/8" />
-      <div className="relative mx-auto mt-34 flex min-h-[100svh] max-w-6xl items-end px-5 pb-24 md:justify-end md:px-8 md:pb-20">
+      <div className="relative mx-auto mt-34 flex min-h-[100svh] max-w-6xl items-end px-5 pb-2 md:justify-end md:px-8 md:pb-20">
         {" "}
         <div className="max-w-2xl md:max-w-xl lg:mr-8">
           <p className="text-xs tracking-[0.18em] uppercase text-[var(--color-linen)]/85">
