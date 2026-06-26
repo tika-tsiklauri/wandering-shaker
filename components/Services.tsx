@@ -52,16 +52,17 @@ export default function ServicesPage() {
           What We offer
         </p>
         <h1 className="mt-3 max-w-4xl font-primary text-4xl leading-tight md:text-5xl">
-          Craft bartending, wherever you gather.
+          Thoughtfully designed bar experiences, shaped around your gathering.
         </h1>
         <p className="mt-5 max-w-3xl text-[15px] leading-relaxed text-black/75 md:text-base">
-          Wandering Shaker provides professional bartending for weddings,
-          private events, and intimate gatherings — bringing a craft cocktail
-          approach to every bar we set up.
+          Every gathering has its own rhythm, and the bar should feel like a
+          natural part of it.
         </p>
-        <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-black/75 md:text-base">
-          Our focus is on thoughtful service, balanced drinks, and an experience
-          that feels natural to the space.
+        <p className="mt-5 max-w-3xl text-[15px] leading-relaxed text-black/75 md:text-base">
+          Rather than offering a one-size-fits-all service, we shape each
+          experience around the people, the setting, and the atmosphere you want
+          to create — bringing thoughtful cocktails, considered hospitality, and
+          refined presentation together in a way that feels effortless.
         </p>
 
         <div className="mt-10 h-px w-full bg-black/10" />
@@ -71,25 +72,27 @@ export default function ServicesPage() {
       <Section
         id="starting-point"
         eyebrow="The starting point"
-        title="Craft bartending, shaped to your event"
+        title="Every gathering begins differently."
       >
         <p>
-          Every gathering brings its own energy, and the bar should feel like a natural extension of the occasion. We work with you to create an experience that fits the mood, the crowd, and the flow of your event.
+          Some celebrations call for a signature cocktail. Others are best
+          served through a simpler beverage offering or an open bar. Rather than
+          fitting your event into a package, we shape the experience around the
+          occasion.
         </p>
-        <p className="mt-4">
-          Whether you envision refined, classic bar service or a more expansive, bespoke cocktail offering, we guide you through the process-helping you shape something that feels considered without feeling complicated.
-        </p>
+        <p className="mt-4">Every gathering includes:</p>
         <BulletList
           items={[
-            "Professional bartending and event coordination",
-            "Thoughtful setup and seamless breakdown",
-            "A curated cocktail experience tailored to your gathering",
-            "Bar service designed around your vision",
-            "Guidance on alcohol and ingredients, handled separately",
+            "Professional bartending and thoughtful event planning",
+            "A signature cocktail developed for your gathering",
+            "A bar experience tailored to your gathering",
+            "Guidance on alcohol, ingredients, and bar logistics",
+            "Refined setup, service, and breakdown",
           ]}
         />
         <p className="text-black/70 mt-4">
-          Pricing for each event is custom-quoted based on guest count, the style of bar tailoring, the level of customization and cocktail program complexity, and the craft involved. We provide a detailed quote that reflects what’s right for your gathering.
+          Every event receives a custom proposal based on guest count, level of
+          customization, service style, and the scope of the experience.
         </p>
       </Section>
 
@@ -97,25 +100,25 @@ export default function ServicesPage() {
       <Section
         id="tailoring"
         eyebrow="Tailoring the bar"
-        title="A bar designed around your event"
+        title="Designed around the occasion."
       >
-        <p>Every event is different, and the bar should reflect that.</p>
+        <p>The bar should never feel separate from the gathering.</p>
         <p>
-          Some hosts choose a focused cocktail offering. Others include beer and
-          wine or expand the cocktail selection. We work with you to shape the
-          bar in a way that fits the event and your guests.
+          Whether the evening centers around custom cocktails, a curated
+          beverage selection, champagne pours, or a simpler open bar, every
+          element is shaped to complement the event rather than compete with it.
         </p>
 
         <div className="mt-7 rounded-2xl border border-black/10 bg-[var(--color-linen)] p-6 shadow-sm">
           <p className="text-xs tracking-[0.18em] uppercase text-black/60">
-            Optional enhancements
+            Enhancements may include:
           </p>
           <BulletList
             items={[
-              "Additional craft cocktails or mocktails",
-              "Additional bartenders for larger guest counts",
-              "Extended service time",
-              "Champagne pours or specialty moments",
+              "Additional cocktails or mocktails",
+              "Additional bartenders",
+              "Extended service",
+              "Specialty pours or moments",
             ]}
           />
         </div>
@@ -125,13 +128,13 @@ export default function ServicesPage() {
       <Section
         id="space"
         eyebrow="The space"
-        title="Thoughtful setup, never competing with the venue"
+        title="A natural part of the room."
       >
-        <p>We approach each event with the venue in mind.</p>
+        <p>Every gathering unfolds in a different setting.</p>
         <p>
-          When an existing bar is available, we’re happy to work within it. When
-          one is needed, we help coordinate a bar solution that complements the
-          setting, rather than competing with it.
+          From intimate gatherings at home to larger celebrations, we
+          thoughtfully adapt the bar experience to the space — creating a setup
+          that feels intentional, refined, and naturally part of the occasion.
         </p>
       </Section>
 
@@ -143,10 +146,11 @@ export default function ServicesPage() {
       >
         <BulletList
           items={[
-            "Clear communication and planning",
-            "A calm, professional presence behind the bar",
-            "Clean flavors and classic technique",
-            "Service that feels well-paced and easy",
+            "Clear communication from planning through service",
+            "Thoughtful preparation and attention to every design detail beyond the cocktails themselves",
+            "Classic technique and balanced cocktails",
+            "Refined presentation that complements the setting",
+            "Calm, attentive service that allows the gathering to unfold naturally",
           ]}
         />
       </Section>
@@ -159,11 +163,11 @@ export default function ServicesPage() {
               Next steps
             </p>
             <h2 className="mt-3 max-w-3xl font-primary text-3xl leading-tight md:text-4xl">
-              Let’s shape the bar around your gathering.
+              Let’s begin with the gathering.
             </h2>
             <p className="mt-4 max-w-4xl text-[15px] leading-relaxed text-black/75 md:text-base">
-              If you’re planning a gathering and would like to explore how we
-              can help shape the bar experience, we’d love to hear more.
+              Tell us about your event, and we'll begin shaping a bar experience
+              that feels thoughtful, personal, and natural to the occasion.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -200,10 +204,6 @@ export default function ServicesPage() {
               </a>
             </div>
           </div>
-
-          <p className="mt-10 text-xs tracking-[0.12em] uppercase text-black/45">
-            Each event receives a custom quote.
-          </p>
         </div>
       </section>
     </main>

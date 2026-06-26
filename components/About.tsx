@@ -212,8 +212,8 @@ export default function AboutPage() {
               of the evening, so the bar feels seamless and natural in the room.
             </p>
             <p className="text-[var(--color-linen)]/80">
-              We bring the quiet care of great cocktail bars to private
-              celebrations of all kinds.
+              We believe thoughtful cocktails are only one part of a memorable
+              gathering.
             </p>
           </>
         }
@@ -233,14 +233,23 @@ export default function AboutPage() {
 
             <div className="mt-8 space-y-6 text-[15px] leading-relaxed text-black/72 md:text-base">
               <p>
-                We believe the best bar experiences are felt, not performed.
-                Thoughtful drinks, considered service, and an awareness of the
-                room allow the evening to unfold naturally.
+                Wandering Shaker began with a simple observation: while
+                restaurants, hotels, and other corners of hospitality have
+                become increasingly thoughtful and design-conscious, bar service
+                often remains focused primarily on function.
               </p>
               <p>
-                Flavors stay clean, movement stays measured, and the bar remains
-                present without pulling focus — so guests feel taken care of
-                without being managed.
+                After years spent in craft cocktail bars, we developed a deep
+                appreciation for great drinks and the skill behind them. We also
+                found ourselves drawn to the quieter elements of hospitality — the
+                atmosphere, thoughtful presentation, refined details, the pace
+                of service, and the feeling a gathering leaves behind.
+              </p>
+              <p>
+                We created Wandering Shaker to bring those elements together.
+                Our role is not simply to serve drinks, but to quietly
+                contribute to gatherings that feel welcoming, effortless, and
+                well considered.
               </p>
             </div>
           </div>
@@ -277,19 +286,15 @@ export default function AboutPage() {
 
             <div className="mt-8 max-w-prose space-y-5 text-[15px] leading-relaxed text-black/75 md:text-base">
               <p>
-                Wandering Shaker is led by a bartender with over a decade of
-                experience in craft cocktail bars and private events.
+                More than a decade behind the bar shaped not only an
+                appreciation for great cocktails, but for the quieter details
+                that define exceptional hospitality.
               </p>
 
               <p>
                 Rooted in classic technique, his style favors balance,
-                restraint, and thoughtful presentation — drinks that feel
-                considered rather than overworked.
-              </p>
-
-              <p>
-                Behind the bar, his presence sets the tone: steady hands,
-                deliberate movement, and careful attention to detail.
+                restraint, and thoughtful presentation — drinks that let the
+                ingredients speak for themselves.
               </p>
             </div>
           </div>
@@ -308,8 +313,9 @@ export default function AboutPage() {
             </h3>
             <p className="mt-7 max-w-2xl mx-auto text-[15px] leading-relaxed text-black/75">
               Preparation happens long before guests arrive. Cocktails are
-              thoughtfully developed and tested, with logistics planned around
-              the rhythm of the gathering.
+              thoughtfully developed and tested, every element of the
+              hospitality experience is carefully considered, and logistics are
+              planned around the rhythm of the gathering.
             </p>
           </div>
 
@@ -355,9 +361,10 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-8 text-[15px] leading-relaxed text-black/75 md:text-base">
-              Bar service is shaped to the needs of each gathering — whether
-              that includes a signature cocktail, beer and wine, or a simpler
-              open bar.
+              Every gathering calls for something different. Whether the evening
+              centers around custom cocktails, a curated beverage selection, or
+              a simpler bar service, each experience is thoughtfully shaped to
+              suit the occasion.
             </p>
 
             <ul className="mt-10 space-y-4 text-[15px] leading-relaxed text-black/75 md:text-base">
