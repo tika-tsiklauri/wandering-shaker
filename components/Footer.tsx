@@ -14,7 +14,7 @@ export default function Footer() {
 
             <div className="mt-3 text-black/40 text-xs">
               <a href="/inquiries" className="underline underline-offset-4">
-                Inquire
+                Request Proposal
               </a>
             </div>
 

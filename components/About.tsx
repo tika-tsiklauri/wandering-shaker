@@ -233,23 +233,31 @@ export default function AboutPage() {
 
             <div className="mt-8 space-y-6 text-[15px] leading-relaxed text-black/72 md:text-base">
               <p>
-                Wandering Shaker began with a simple observation: while
-                restaurants, hotels, and other corners of hospitality have
-                become increasingly thoughtful and design-conscious, bar service
-                often remains focused primarily on function.
+                Wandering Shaker began with a simple observation: as food and
+                catering have become increasingly thoughtful and
+                design-conscious, hosts have embraced beautifully curated
+                experiences - from grazing tables and private chefs to
+                intentionally designed dining moments. While these elements have
+                transformed the way people gather, the bar has rarely been
+                approached with the same level of intention. We believed the bar
+                could support the gathering in the same thoughtful way as every
+                other carefully considered detail.
               </p>
               <p>
                 After years spent in craft cocktail bars, we developed a deep
-                appreciation for great drinks and the skill behind them. We also
-                found ourselves drawn to the quieter elements of hospitality — the
-                atmosphere, thoughtful presentation, refined details, the pace
-                of service, and the feeling a gathering leaves behind.
+                appreciation for great drinks and the skill behind them. But we
+                found ourselves drawn just as much to the quieter elements of
+                hospitality — the atmosphere, thoughtful presentation, refined
+                details, the pace of service, and the feeling a gathering leaves
+                behind.
               </p>
               <p>
-                We created Wandering Shaker to bring those elements together.
-                Our role is not simply to serve drinks, but to quietly
-                contribute to gatherings that feel welcoming, effortless, and
-                well considered.
+                Wandering Shaker was created to bring those elements together.
+                Our role is not simply to serve drinks, but to support the
+                gathering with thoughtful hospitality that feels calm,
+                welcoming, and seamlessly woven into the experience. The best
+                service isn't something guests notice, it’s something they simply
+                feel.
               </p>
             </div>
           </div>
@@ -312,10 +320,10 @@ export default function AboutPage() {
               Preparation that stays invisible
             </h3>
             <p className="mt-7 max-w-2xl mx-auto text-[15px] leading-relaxed text-black/75">
-              Preparation happens long before guests arrive. Cocktails are
-              thoughtfully developed and tested, every element of the
-              hospitality experience is carefully considered, and logistics are
-              planned around the rhythm of the gathering.
+              Preparation begins long before guests arrive. The beverage
+              program, style of service, and every detail surrounding the
+              experience are thoughtfully planned so the gathering unfolds with
+              ease.
             </p>
           </div>
 
@@ -369,12 +377,10 @@ export default function AboutPage() {
 
             <ul className="mt-10 space-y-4 text-[15px] leading-relaxed text-black/75 md:text-base">
               {[
-                "One curated craft cocktail included with every event",
-                "Additional craft cocktails or mocktails can be included",
-                "Alcohol and ingredients handled separately, with guidance throughout",
-                "Classic technique and thoughtful presentation",
-                "A bar setup that complements the space",
-                "Calm, polished, well-timed service",
+                "A bar setup and style of service that complements your gathering",
+                "Classic technique, thoughtful presentation, and calm, polished service",
+                "Details curated beyond the cocktails - from menu design and serviceware to personalized, editorial touches",
+                "Guidance for sourcing alcohol and beverage ingredients, or full sourcing available upon request",
               ].map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-[0.15rem] text-black/45">—</span>
@@ -402,7 +408,7 @@ export default function AboutPage() {
                   hover:bg-[color-mix(in_oklab,var(--color-moss),black_10%)]
                 "
               >
-                Inquire
+                Request Proposal
               </a>
 
               <a

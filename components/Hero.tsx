@@ -57,7 +57,7 @@ export default function Hero() {
                   hover:bg-[#e9e2d0] transition
                 "
               >
-                Inquire
+                Request Proposal
               </a>
 
               <a

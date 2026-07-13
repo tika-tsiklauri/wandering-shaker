@@ -4,6 +4,51 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const MIN_LEAD_DAYS = 14;
 
+const eventTypeLabels: Record<string, string> = {
+  wedding: "Wedding",
+  "private-gathering": "Private gathering",
+  birthday: "Birthday",
+  shower: "Shower",
+  fundraiser: "Fundraiser",
+  corporate: "Corporate event",
+  "brand-event": "Brand or launch event",
+  other: "Other",
+};
+
+const serviceDurationLabels: Record<string, string> = {
+  "2-hours": "2 hours",
+  "3-hours": "3 hours",
+  "4-hours": "4 hours",
+  "5-plus-hours": "5+ hours",
+  "not-sure": "Not sure yet",
+};
+
+const beverageServiceLabels: Record<string, string> = {
+  "beer-and-wine": "Beer & wine",
+  "simple-mixers":
+    "Simple liquor + mixer drinks (vodka soda, gin and tonic, whiskey ginger, etc.)",
+  "signature-cocktails": "Signature cocktails",
+  "full-cocktail-menu": "Full cocktail menu",
+  mocktails: "Mocktails",
+  other: "Other beverage service",
+  "not-sure": "Not sure yet",
+};
+
+const barSetupLabels: Record<string, string> = {
+  "existing-bar": "There is an existing bar or suitable serving space",
+  "portable-bar": "We'd like Wandering Shaker to provide the portable bar",
+  "not-sure": "Not sure yet",
+};
+
+function formatSelectValue(
+  value: unknown,
+  labels: Record<string, string>,
+): string {
+  if (typeof value !== "string" || !value.trim()) return "-";
+
+  return labels[value] ?? value;
+}
+
 function parseIsoDate(input: string): Date | null {
   const match = input.match(/^(\d{4})-(\d{2})-(\d{2})$/);
   if (!match) return null;
@@ -58,6 +103,10 @@ export async function POST(req: Request) {
       eventType,
       location,
       guestCount,
+      serviceDuration,
+      beverageService,
+      otherBeverageService,
+      barSetup,
       message,
     } = data;
 
@@ -76,9 +125,14 @@ New booking inquiry from ${name || "Unknown"}:
 Name:        ${name || "-"}
 Email:       ${email || "-"}
 Event Date:  ${eventDate || "-"}
-Event Type:  ${eventType || "-"}
+Event Type:  ${formatSelectValue(eventType, eventTypeLabels)}
 Location:    ${location || "-"}
 Guests:      ${guestCount || "-"}
+
+Service Duration:       ${formatSelectValue(serviceDuration, serviceDurationLabels)}
+Beverage Service:       ${formatSelectValue(beverageService, beverageServiceLabels)}
+Other Beverage Service: ${otherBeverageService || "-"}
+Bar Setup:              ${formatSelectValue(barSetup, barSetupLabels)}
 
 Message:
 ${message || "-"}

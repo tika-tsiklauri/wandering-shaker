@@ -84,8 +84,7 @@ export default function ServicesPage() {
         <BulletList
           items={[
             "Professional bartending and thoughtful event planning",
-            "A signature cocktail developed for your gathering",
-            "A bar experience tailored to your gathering",
+            "A bar service style and experience tailored to your gathering",
             "Guidance on alcohol, ingredients, and bar logistics",
             "Refined setup, service, and breakdown",
           ]}
@@ -111,14 +110,16 @@ export default function ServicesPage() {
 
         <div className="mt-7 rounded-2xl border border-black/10 bg-[var(--color-linen)] p-6 shadow-sm">
           <p className="text-xs tracking-[0.18em] uppercase text-black/60">
-            Enhancements may include:
+            Every proposal is tailored and may include:
           </p>
           <BulletList
             items={[
-              "Additional cocktails or mocktails",
-              "Additional bartenders",
-              "Extended service",
-              "Specialty pours or moments",
+              "A portable bar or existing venue setup",
+              "Beer, wine, simple mixed drinks, or signature cocktails",
+              "One or multiple bartenders",
+              "Custom menus and presentation details",
+              "Champagne or specialty pours",
+              "Service tailored to the pace and style of the event",
             ]}
           />
         </div>
@@ -184,7 +185,7 @@ export default function ServicesPage() {
                   hover:bg-[color-mix(in_oklab,var(--color-moss),black_10%)]
                 "
               >
-                Inquire
+                Request Proposal
               </a>
 
               <a

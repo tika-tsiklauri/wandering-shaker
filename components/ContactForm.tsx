@@ -73,7 +73,7 @@ export default function ContactForm() {
                 Contact
               </h1>
               <p className="mt-3 font-secondary text-sm md:text-base text-[#354f32]/80 max-w-md">
-                Quick question or a special request? Send a note and we'll get
+                Quick question or a special request? Send a note and we&apos;ll get
                 back to you soon.
               </p>
 
@@ -196,7 +196,7 @@ export default function ContactForm() {
 
                 <p className="mt-6 font-secondary text-xs text-[#354f32]/70">
                   Prefer email? Send details like date, location, guest count, and
-                  the vibe you're going for.
+                  the vibe you&apos;re going for.
                 </p>
               </div>
             </div>
